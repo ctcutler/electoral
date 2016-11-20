@@ -1,6 +1,7 @@
  X Download and clean data
  X Load data into JS
- - Set up js app
- - Share on GH
+ X Set up js app
+ X Share on GH
+ - Expose raw data in react
  - Crunch numbers
  - Visualize
