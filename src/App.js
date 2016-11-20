@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import { states } from './states.js';
-import R from 'ramda';
+import { calcPersonVotes } from './analysis.js';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-        selected: 'California',
-        personVotes: this.calcPersonVotes(states)
+        selected: 'Wyoming',
+        personVotes: calcPersonVotes(states)
     };
   }
-
-  calcPersonVotes = R.map(R.prop('Total of citizens 18 years and older'));
 
   render() {
     return (
