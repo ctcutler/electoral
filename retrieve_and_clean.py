@@ -1,22 +1,26 @@
 from collections import namedtuple
+import json
 import os.path
 
 from openpyxl import load_workbook
 import requests
 
 DATA_DIR = 'source_files/electorate-profiles-2016'
-STATES = [
-    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
-    'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia',
-    'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-    'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
-    'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
-    'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina',
-    'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas',
-    'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin',
-    'Wyoming',
-]
+JS_FILE = 'states.js'
+E_VOTES = {
+    'Alabama': 9, 'Alaska': 3, 'Arizona': 11, 'Arkansas': 6, 'California': 55,
+    'Colorado': 9, 'Connecticut': 7, 'Delaware': 3, 'District of Columbia': 3,
+    'Florida': 29, 'Georgia': 16, 'Hawaii': 4, 'Idaho': 4, 'Illinois': 20,
+    'Indiana': 11, 'Iowa': 6, 'Kansas': 6, 'Kentucky': 8, 'Louisiana': 8,
+    'Maine': 4, 'Maryland': 10, 'Massachusetts': 11, 'Michigan': 16,
+    'Minnesota': 10, 'Mississippi': 6, 'Missouri': 10, 'Montana': 3,
+    'Nebraska': 5, 'Nevada': 6, 'New Hampshire': 4, 'New Jersey': 14,
+    'New Mexico': 5, 'New York': 29, 'North Carolina': 15, 'North Dakota': 3,
+    'Ohio': 18, 'Oklahoma': 7, 'Oregon': 7, 'Pennsylvania': 20,
+    'Rhode Island': 4, 'South Carolina': 9, 'South Dakota': 3,
+    'Tennessee': 11, 'Texas': 38, 'Utah': 6, 'Vermont': 3, 'Virginia': 13,
+    'Washington': 12, 'West Virginia': 5, 'Wisconsin': 10, 'Wyoming': 3,
+}
 DataPoint = namedtuple('DataPoint', ['desc', 'value'])
 DATA_POINTS = [
     DataPoint(desc='A3', value='B3'),
@@ -47,8 +51,10 @@ DATA_POINTS = [
 # urls found at: http://www.census.gov/data/tables/time-series/demo/voting-and-registration/electorate-profiles-2016.html
 URL = 'http://www2.census.gov/programs-surveys/demo/tables/voting/{}.xlsx'
 
-for state in STATES:
+pop_counts = {}
+for state, e_votes in E_VOTES.items():
     print(state)
+    pop_counts[state] = { 'Electoral votes': e_votes }
     fn = os.path.join(DATA_DIR, state+'.xlsx')
 
     if not os.path.exists(fn):
@@ -59,9 +65,12 @@ for state in STATES:
 
     wb = load_workbook(fn)
     ws = wb[wb.sheetnames[0]]
-    pop_counts = {}
     for data_point in DATA_POINTS:
         desc = ws[data_point.desc].value
         value = ws[data_point.value].value
-        pop_counts[desc] = value
-    print(pop_counts)
+        pop_counts[state][desc] = value
+
+with open(JS_FILE, 'w') as f:
+    f.write('export const states = ')
+    f.write(json.dumps(pop_counts, indent=2, sort_keys=True))
+    f.write(';\n')
