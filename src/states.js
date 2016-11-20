@@ -23,7 +23,8 @@ export const states = {
     "Total of citizens 18 years and older": 3653381,
     "Two or More Races": 47474,
     "White alone": 2591050,
-    "White alone, Not Hispanic or Latino": 2548810
+    "White alone, Not Hispanic or Latino": 2548810,
+    "name": "Alabama"
   },
   "Alaska": {
     "18 to 29 years": 139756,
@@ -49,7 +50,8 @@ export const states = {
     "Total of citizens 18 years and older": 528248,
     "Two or More Races": 34321,
     "White alone": 374891,
-    "White alone, Not Hispanic or Latino": 355083
+    "White alone, Not Hispanic or Latino": 355083,
+    "name": "Alaska"
   },
   "Arizona": {
     "18 to 29 years": 1030287,
@@ -75,7 +77,8 @@ export const states = {
     "Total of citizens 18 years and older": 4710448,
     "Two or More Races": 110794,
     "White alone": 3832412,
-    "White alone, Not Hispanic or Latino": 3089276
+    "White alone, Not Hispanic or Latino": 3089276,
+    "name": "Arizona"
   },
   "Arkansas": {
     "18 to 29 years": 457075,
@@ -101,7 +104,8 @@ export const states = {
     "Total of citizens 18 years and older": 2185724,
     "Two or More Races": 31177,
     "White alone": 1761067,
-    "White alone, Not Hispanic or Latino": 1718425
+    "White alone, Not Hispanic or Latino": 1718425,
+    "name": "Arkansas"
   },
   "California": {
     "18 to 29 years": 5951295,
@@ -127,7 +131,8 @@ export const states = {
     "Total of citizens 18 years and older": 25002812,
     "Two or More Races": 922732,
     "White alone": 16311506,
-    "White alone, Not Hispanic or Latino": 11977031
+    "White alone, Not Hispanic or Latino": 11977031,
+    "name": "California"
   },
   "Colorado": {
     "18 to 29 years": 875715,
@@ -153,7 +158,8 @@ export const states = {
     "Total of citizens 18 years and older": 3896986,
     "Two or More Races": 101275,
     "White alone": 3417917,
-    "White alone, Not Hispanic or Latino": 2987786
+    "White alone, Not Hispanic or Latino": 2987786,
+    "name": "Colorado"
   },
   "Connecticut": {
     "18 to 29 years": 512438,
@@ -179,7 +185,8 @@ export const states = {
     "Total of citizens 18 years and older": 2584884,
     "Two or More Races": 54798,
     "White alone": 2109015,
-    "White alone, Not Hispanic or Latino": 1941516
+    "White alone, Not Hispanic or Latino": 1941516,
+    "name": "Connecticut"
   },
   "Delaware": {
     "18 to 29 years": 142942,
@@ -205,7 +212,8 @@ export const states = {
     "Total of citizens 18 years and older": 697148,
     "Two or More Races": 11407,
     "White alone": 512417,
-    "White alone, Not Hispanic or Latino": 489019
+    "White alone, Not Hispanic or Latino": 489019,
+    "name": "Delaware"
   },
   "District of Columbia": {
     "18 to 29 years": 146060,
@@ -231,7 +239,8 @@ export const states = {
     "Total of citizens 18 years and older": 504242,
     "Two or More Races": 13239,
     "White alone": 217557,
-    "White alone, Not Hispanic or Latino": 201363
+    "White alone, Not Hispanic or Latino": 201363,
+    "name": "District of Columbia"
   },
   "Florida": {
     "18 to 29 years": 2758473,
@@ -257,7 +266,8 @@ export const states = {
     "Total of citizens 18 years and older": 14441877,
     "Two or More Races": 257069,
     "White alone": 11430138,
-    "White alone, Not Hispanic or Latino": 9141880
+    "White alone, Not Hispanic or Latino": 9141880,
+    "name": "Florida"
   },
   "Georgia": {
     "18 to 29 years": 1605012,
@@ -283,7 +293,8 @@ export const states = {
     "Total of citizens 18 years and older": 7168068,
     "Two or More Races": 111126,
     "White alone": 4499821,
-    "White alone, Not Hispanic or Latino": 4292983
+    "White alone, Not Hispanic or Latino": 4292983,
+    "name": "Georgia"
   },
   "Hawaii": {
     "18 to 29 years": 229431,
@@ -309,7 +320,8 @@ export const states = {
     "Total of citizens 18 years and older": 1022704,
     "Two or More Races": 213790,
     "White alone": 301857,
-    "White alone, Not Hispanic or Latino": 274113
+    "White alone, Not Hispanic or Latino": 274113,
+    "name": "Hawaii"
   },
   "Idaho": {
     "18 to 29 years": 249665,
@@ -335,7 +347,8 @@ export const states = {
     "Total of citizens 18 years and older": 1168843,
     "Two or More Races": 22026,
     "White alone": 1094949,
-    "White alone, Not Hispanic or Latino": 1030890
+    "White alone, Not Hispanic or Latino": 1030890,
+    "name": "Idaho"
   },
   "Illinois": {
     "18 to 29 years": 1931136,
@@ -361,7 +374,8 @@ export const states = {
     "Total of citizens 18 years and older": 9017653,
     "Two or More Races": 134412,
     "White alone": 6850348,
-    "White alone, Not Hispanic or Latino": 6267957
+    "White alone, Not Hispanic or Latino": 6267957,
+    "name": "Illinois"
   },
   "Indiana": {
     "18 to 29 years": 1045010,
@@ -387,7 +401,8 @@ export const states = {
     "Total of citizens 18 years and older": 4856797,
     "Two or More Races": 70308,
     "White alone": 4241820,
-    "White alone, Not Hispanic or Latino": 4132708
+    "White alone, Not Hispanic or Latino": 4132708,
+    "name": "Indiana"
   },
   "Iowa": {
     "18 to 29 years": 485181,
@@ -413,7 +428,8 @@ export const states = {
     "Total of citizens 18 years and older": 2310467,
     "Two or More Races": 25722,
     "White alone": 2170394,
-    "White alone, Not Hispanic or Latino": 2124124
+    "White alone, Not Hispanic or Latino": 2124124,
+    "name": "Iowa"
   },
   "Kansas": {
     "18 to 29 years": 458083,
@@ -439,7 +455,8 @@ export const states = {
     "Total of citizens 18 years and older": 2074102,
     "Two or More Races": 42422,
     "White alone": 1828607,
-    "White alone, Not Hispanic or Latino": 1732269
+    "White alone, Not Hispanic or Latino": 1732269,
+    "name": "Kansas"
   },
   "Kentucky": {
     "18 to 29 years": 685881,
@@ -465,7 +482,8 @@ export const states = {
     "Total of citizens 18 years and older": 3329835,
     "Two or More Races": 42017,
     "White alone": 2983706,
-    "White alone, Not Hispanic or Latino": 2947540
+    "White alone, Not Hispanic or Latino": 2947540,
+    "name": "Kentucky"
   },
   "Louisiana": {
     "18 to 29 years": 771269,
@@ -491,7 +509,8 @@ export const states = {
     "Total of citizens 18 years and older": 3454978,
     "Two or More Races": 44845,
     "White alone": 2244752,
-    "White alone, Not Hispanic or Latino": 2168809
+    "White alone, Not Hispanic or Latino": 2168809,
+    "name": "Louisiana"
   },
   "Maine": {
     "18 to 29 years": 184664,
@@ -517,7 +536,8 @@ export const states = {
     "Total of citizens 18 years and older": 1056410,
     "Two or More Races": 17800,
     "White alone": 1015905,
-    "White alone, Not Hispanic or Latino": 1007690
+    "White alone, Not Hispanic or Latino": 1007690,
+    "name": "Maine"
   },
   "Maryland": {
     "18 to 29 years": 885022,
@@ -543,7 +563,8 @@ export const states = {
     "Total of citizens 18 years and older": 4239987,
     "Two or More Races": 89474,
     "White alone": 2594866,
-    "White alone, Not Hispanic or Latino": 2484280
+    "White alone, Not Hispanic or Latino": 2484280,
+    "name": "Maryland"
   },
   "Massachusetts": {
     "18 to 29 years": 1054087,
@@ -569,7 +590,8 @@ export const states = {
     "Total of citizens 18 years and older": 4924459,
     "Two or More Races": 87396,
     "White alone": 4169327,
-    "White alone, Not Hispanic or Latino": 3947872
+    "White alone, Not Hispanic or Latino": 3947872,
+    "name": "Massachusetts"
   },
   "Michigan": {
     "18 to 29 years": 1542622,
@@ -595,7 +617,8 @@ export const states = {
     "Total of citizens 18 years and older": 7436478,
     "Two or More Races": 134464,
     "White alone": 6066731,
-    "White alone, Not Hispanic or Latino": 5906607
+    "White alone, Not Hispanic or Latino": 5906607,
+    "name": "Michigan"
   },
   "Minnesota": {
     "18 to 29 years": 805059,
@@ -621,7 +644,8 @@ export const states = {
     "Total of citizens 18 years and older": 4007159,
     "Two or More Races": 71805,
     "White alone": 3574508,
-    "White alone, Not Hispanic or Latino": 3508443
+    "White alone, Not Hispanic or Latino": 3508443,
+    "name": "Minnesota"
   },
   "Mississippi": {
     "18 to 29 years": 491094,
@@ -647,7 +671,8 @@ export const states = {
     "Total of citizens 18 years and older": 2220616,
     "Two or More Races": 16103,
     "White alone": 1360271,
-    "White alone, Not Hispanic or Latino": 1340951
+    "White alone, Not Hispanic or Latino": 1340951,
+    "name": "Mississippi"
   },
   "Missouri": {
     "18 to 29 years": 951395,
@@ -673,7 +698,8 @@ export const states = {
     "Total of citizens 18 years and older": 4567771,
     "Two or More Races": 72645,
     "White alone": 3887151,
-    "White alone, Not Hispanic or Latino": 3818710
+    "White alone, Not Hispanic or Latino": 3818710,
+    "name": "Missouri"
   },
   "Montana": {
     "18 to 29 years": 160739,
@@ -699,7 +725,8 @@ export const states = {
     "Total of citizens 18 years and older": 797198,
     "Two or More Races": 14899,
     "White alone": 725725,
-    "White alone, Not Hispanic or Latino": 711376
+    "White alone, Not Hispanic or Latino": 711376,
+    "name": "Montana"
   },
   "Nebraska": {
     "18 to 29 years": 291399,
@@ -725,7 +752,8 @@ export const states = {
     "Total of citizens 18 years and older": 1352947,
     "Two or More Races": 16593,
     "White alone": 1240211,
-    "White alone, Not Hispanic or Latino": 1181977
+    "White alone, Not Hispanic or Latino": 1181977,
+    "name": "Nebraska"
   },
   "Nevada": {
     "18 to 29 years": 412375,
@@ -751,7 +779,8 @@ export const states = {
     "Total of citizens 18 years and older": 1942764,
     "Two or More Races": 72964,
     "White alone": 1403067,
-    "White alone, Not Hispanic or Latino": 1189968
+    "White alone, Not Hispanic or Latino": 1189968,
+    "name": "Nevada"
   },
   "New Hampshire": {
     "18 to 29 years": 200659,
@@ -777,7 +806,8 @@ export const states = {
     "Total of citizens 18 years and older": 1035684,
     "Two or More Races": 12805,
     "White alone": 990761,
-    "White alone, Not Hispanic or Latino": 972351
+    "White alone, Not Hispanic or Latino": 972351,
+    "name": "New Hampshire"
   },
   "New Jersey": {
     "18 to 29 years": 1198766,
@@ -803,7 +833,8 @@ export const states = {
     "Total of citizens 18 years and older": 6154126,
     "Two or More Races": 113687,
     "White alone": 4472351,
-    "White alone, Not Hispanic or Latino": 3947170
+    "White alone, Not Hispanic or Latino": 3947170,
+    "name": "New Jersey"
   },
   "New Mexico": {
     "18 to 29 years": 323746,
@@ -829,7 +860,8 @@ export const states = {
     "Total of citizens 18 years and older": 1470045,
     "Two or More Races": 38624,
     "White alone": 1113145,
-    "White alone, Not Hispanic or Latino": 666259
+    "White alone, Not Hispanic or Latino": 666259,
+    "name": "New Mexico"
   },
   "New York": {
     "18 to 29 years": 3012309,
@@ -855,7 +887,8 @@ export const states = {
     "Total of citizens 18 years and older": 13704991,
     "Two or More Races": 281242,
     "White alone": 9585914,
-    "White alone, Not Hispanic or Latino": 8696497
+    "White alone, Not Hispanic or Latino": 8696497,
+    "name": "New York"
   },
   "North Carolina": {
     "18 to 29 years": 1542018,
@@ -881,7 +914,8 @@ export const states = {
     "Total of citizens 18 years and older": 7296335,
     "Two or More Races": 111466,
     "White alone": 5280883,
-    "White alone, Not Hispanic or Latino": 5117784
+    "White alone, Not Hispanic or Latino": 5117784,
+    "name": "North Carolina"
   },
   "North Dakota": {
     "18 to 29 years": 147310,
@@ -907,7 +941,8 @@ export const states = {
     "Total of citizens 18 years and older": 571119,
     "Two or More Races": 10842,
     "White alone": 519022,
-    "White alone, Not Hispanic or Latino": 508386
+    "White alone, Not Hispanic or Latino": 508386,
+    "name": "North Dakota"
   },
   "Ohio": {
     "18 to 29 years": 1785176,
@@ -933,7 +968,8 @@ export const states = {
     "Total of citizens 18 years and older": 8765154,
     "Two or More Races": 143915,
     "White alone": 7434519,
-    "White alone, Not Hispanic or Latino": 7299448
+    "White alone, Not Hispanic or Latino": 7299448,
+    "name": "Ohio"
   },
   "Oklahoma": {
     "18 to 29 years": 617293,
@@ -959,7 +995,8 @@ export const states = {
     "Total of citizens 18 years and older": 2807548,
     "Two or More Races": 171073,
     "White alone": 2154712,
-    "White alone, Not Hispanic or Latino": 2066666
+    "White alone, Not Hispanic or Latino": 2066666,
+    "name": "Oklahoma"
   },
   "Oregon": {
     "18 to 29 years": 583206,
@@ -985,7 +1022,8 @@ export const states = {
     "Total of citizens 18 years and older": 2956232,
     "Two or More Races": 102901,
     "White alone": 2626238,
-    "White alone, Not Hispanic or Latino": 2495029
+    "White alone, Not Hispanic or Latino": 2495029,
+    "name": "Oregon"
   },
   "Pennsylvania": {
     "18 to 29 years": 1972096,
@@ -1011,7 +1049,8 @@ export const states = {
     "Total of citizens 18 years and older": 9752322,
     "Two or More Races": 141884,
     "White alone": 8255066,
-    "White alone, Not Hispanic or Latino": 7985697
+    "White alone, Not Hispanic or Latino": 7985697,
+    "name": "Pennsylvania"
   },
   "Rhode Island": {
     "18 to 29 years": 171968,
@@ -1037,7 +1076,8 @@ export const states = {
     "Total of citizens 18 years and older": 784997,
     "Two or More Races": 18197,
     "White alone": 677475,
-    "White alone, Not Hispanic or Latino": 636727
+    "White alone, Not Hispanic or Latino": 636727,
+    "name": "Rhode Island"
   },
   "South Carolina": {
     "18 to 29 years": 779810,
@@ -1063,7 +1103,8 @@ export const states = {
     "Total of citizens 18 years and older": 3677799,
     "Two or More Races": 50481,
     "White alone": 2562464,
-    "White alone, Not Hispanic or Latino": 2498989
+    "White alone, Not Hispanic or Latino": 2498989,
+    "name": "South Carolina"
   },
   "South Dakota": {
     "18 to 29 years": 136888,
@@ -1089,7 +1130,8 @@ export const states = {
     "Total of citizens 18 years and older": 634140,
     "Two or More Races": 12673,
     "White alone": 561591,
-    "White alone, Not Hispanic or Latino": 553917
+    "White alone, Not Hispanic or Latino": 553917,
+    "name": "South Dakota"
   },
   "Tennessee": {
     "18 to 29 years": 1023725,
@@ -1115,7 +1157,8 @@ export const states = {
     "Total of citizens 18 years and older": 4919574,
     "Two or More Races": 68466,
     "White alone": 3957985,
-    "White alone, Not Hispanic or Latino": 3884451
+    "White alone, Not Hispanic or Latino": 3884451,
+    "name": "Tennessee"
   },
   "Texas": {
     "18 to 29 years": 4168710,
@@ -1141,7 +1184,8 @@ export const states = {
     "Total of citizens 18 years and older": 17523904,
     "Two or More Races": 332854,
     "White alone": 13498681,
-    "White alone, Not Hispanic or Latino": 9307776
+    "White alone, Not Hispanic or Latino": 9307776,
+    "name": "Texas"
   },
   "Utah": {
     "18 to 29 years": 520868,
@@ -1167,7 +1211,8 @@ export const states = {
     "Total of citizens 18 years and older": 1945001,
     "Two or More Races": 37700,
     "White alone": 1773078,
-    "White alone, Not Hispanic or Latino": 1670455
+    "White alone, Not Hispanic or Latino": 1670455,
+    "name": "Utah"
   },
   "Vermont": {
     "18 to 29 years": 97720,
@@ -1193,7 +1238,8 @@ export const states = {
     "Total of citizens 18 years and older": 494717,
     "Two or More Races": 6875,
     "White alone": 476045,
-    "White alone, Not Hispanic or Latino": 470723
+    "White alone, Not Hispanic or Latino": 470723,
+    "name": "Vermont"
   },
   "Virginia": {
     "18 to 29 years": 1315486,
@@ -1219,7 +1265,8 @@ export const states = {
     "Total of citizens 18 years and older": 6062304,
     "Two or More Races": 138600,
     "White alone": 4362044,
-    "White alone, Not Hispanic or Latino": 4159561
+    "White alone, Not Hispanic or Latino": 4159561,
+    "name": "Virginia"
   },
   "Washington": {
     "18 to 29 years": 1076282,
@@ -1245,7 +1292,8 @@ export const states = {
     "Total of citizens 18 years and older": 5081800,
     "Two or More Races": 204569,
     "White alone": 4192121,
-    "White alone, Not Hispanic or Latino": 3981119
+    "White alone, Not Hispanic or Latino": 3981119,
+    "name": "Washington"
   },
   "West Virginia": {
     "18 to 29 years": 270595,
@@ -1271,7 +1319,8 @@ export const states = {
     "Total of citizens 18 years and older": 1451557,
     "Two or More Races": 15262,
     "White alone": 1369240,
-    "White alone, Not Hispanic or Latino": 1357497
+    "White alone, Not Hispanic or Latino": 1357497,
+    "name": "West Virginia"
   },
   "Wisconsin": {
     "18 to 29 years": 877347,
@@ -1297,7 +1346,8 @@ export const states = {
     "Total of citizens 18 years and older": 4340567,
     "Two or More Races": 55789,
     "White alone": 3886075,
-    "White alone, Not Hispanic or Latino": 3777176
+    "White alone, Not Hispanic or Latino": 3777176,
+    "name": "Wisconsin"
   },
   "Wyoming": {
     "18 to 29 years": 93620,
@@ -1323,6 +1373,7 @@ export const states = {
     "Total of citizens 18 years and older": 434584,
     "Two or More Races": 7572,
     "White alone": 408381,
-    "White alone, Not Hispanic or Latino": 384019
+    "White alone, Not Hispanic or Latino": 384019,
+    "name": "Wyoming"
   }
 };

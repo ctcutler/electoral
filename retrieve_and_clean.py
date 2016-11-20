@@ -54,7 +54,10 @@ URL = 'http://www2.census.gov/programs-surveys/demo/tables/voting/{}.xlsx'
 pop_counts = {}
 for state, e_votes in E_VOTES.items():
     print(state)
-    pop_counts[state] = { 'Electoral votes': e_votes }
+    pop_counts[state] = {
+        'Electoral votes': e_votes,
+        'name': state
+    }
     fn = os.path.join(DATA_DIR, state+'.xlsx')
 
     if not os.path.exists(fn):

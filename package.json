@@ -9,6 +9,7 @@
     "numeral": "^1.5.3",
     "ramda": "^0.22.1",
     "react": "^15.4.0",
+    "react-autosuggest": "^7.0.1",
     "react-dom": "^15.4.0"
   },
   "scripts": {
