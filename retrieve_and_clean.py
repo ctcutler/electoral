@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 import requests
 
 DATA_DIR = 'source_files/electorate-profiles-2016'
-JS_FILE = 'states.js'
+JS_FILE = 'src/states.js'
 E_VOTES = {
     'Alabama': 9, 'Alaska': 3, 'Arizona': 11, 'Arkansas': 6, 'California': 55,
     'Colorado': 9, 'Connecticut': 7, 'Delaware': 3, 'District of Columbia': 3,
