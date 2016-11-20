@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import numeral from 'numeral';
+
 import './App.css';
 import { states } from './states.js';
 import { calcPersonVotes } from './analysis.js';
@@ -12,10 +14,15 @@ class App extends Component {
     };
   }
 
+  personVotes(stateName) {
+    const n = this.state.personVotes[stateName];
+    return numeral(n).format('0.00');
+  }
+
   render() {
     return (
       <div className="App">
-        <p>People in {this.state.selected} get {this.state.personVotes[this.state.selected]} votes each.</p>
+        <p>People in {this.state.selected} get {this.personVotes(this.state.selected)} votes each.</p>
       </div>
     );
   }
