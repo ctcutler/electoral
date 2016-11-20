@@ -2,6 +2,7 @@
  X Load data into JS
  X Set up js app
  X Share on GH
- - Expose raw data in react
+ X Expose raw data in react
  - Crunch numbers
  - Visualize
+ - Publish on github.io
