@@ -1,5 +1,20 @@
 .App {
-  text-align: center;
-  font-size: 72px;
-  font-family: 'EB Garamond', serif;
+  text-align: center !important;
+  font-size: 72px !important;
+  font-family: 'EB Garamond', serif !important;
+}
+
+.App input {
+  text-align: center !important;
+  font-size: 72px !important;
+  font-family: 'EB Garamond', serif !important;
+  height: 100px !important;
+}
+
+.App hr, .App input, .App div {
+  width: 500px !important;
+}
+
+.App hr {
+  bottom: -35px !important;
 }
