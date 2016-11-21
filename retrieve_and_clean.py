@@ -21,43 +21,42 @@ E_VOTES = {
     'Tennessee': 11, 'Texas': 38, 'Utah': 6, 'Vermont': 3, 'Virginia': 13,
     'Washington': 12, 'West Virginia': 5, 'Wisconsin': 10, 'Wyoming': 3,
 }
-DataPoint = namedtuple('DataPoint', ['desc', 'value'])
-DATA_POINTS = [
-    DataPoint(desc='A3', value='B3'),
-    DataPoint(desc='A5', value='B5'),
-    DataPoint(desc='A6', value='B6'),
-    DataPoint(desc='A7', value='B7'),
-    DataPoint(desc='A8', value='B8'),
-    DataPoint(desc='A10', value='B10'),
-    DataPoint(desc='A11', value='B11'),
-    DataPoint(desc='A13', value='B13'),
-    DataPoint(desc='A14', value='B14'),
-    DataPoint(desc='A15', value='B15'),
-    DataPoint(desc='A16', value='B16'),
-    DataPoint(desc='A17', value='B17'),
-    DataPoint(desc='A18', value='B18'),
-    DataPoint(desc='A19', value='B19'),
-    DataPoint(desc='A21', value='B21'),
-    DataPoint(desc='A22', value='B22'),
-    DataPoint(desc='A23', value='B23'),
-    DataPoint(desc='A24', value='B24'),
-    DataPoint(desc='A25', value='B25'),
-    DataPoint(desc='A26', value='B26'),
-    DataPoint(desc='A27', value='B27'),
-    DataPoint(desc='A28', value='B28'),
-    DataPoint(desc='A29', value='B29'),
-]
+
+VOTING_AGE_POP = 'B3'
+EIGHTEEN_TO_TWENTY_NINE = 'B5'
+THIRTY_TO_FOURTY_FOUR = 'B6'
+FORTY_FIVE_TO_SIXTY_FOUR = 'B7'
+SIXTY_FIVE_AND_OVER = 'B8'
+MALE = 'B10'
+FEMALE = 'B10'
+WHITE = 'B13'
+BLACK = 'B14'
+NATIVE_AMERICAN = 'B15'
+ASIAN = 'B16'
+PACIFIC_ISLANDER = 'B17'
+OTHER_RACE = 'B18'
+MULTI_RACIAL = 'B19'
+HISPANIC = 'B21'
+NOT_HISPANIC = 'B22'
+WHITE_NOT_HISPANIC = 'B23'
+CITIZENS_25_AND_OLDER = 'B24'
+BACHELORS_OR_HIGHER = 'B25'
+DETERMINED_POVERTY_STATUS = 'B26'
+BELOW_POVERTY_LEVEL = 'B27'
+HOUSEHOLDS = 'B28'
+HUNDRED_K_HOUSEHOLDS = 'B29'
 
 # urls found at: http://www.census.gov/data/tables/time-series/demo/voting-and-registration/electorate-profiles-2016.html
 URL = 'http://www2.census.gov/programs-surveys/demo/tables/voting/{}.xlsx'
 
-pop_counts = {}
+def write_object(f, name, o):
+    f.write('export const {} = '.format(name))
+    f.write(json.dumps(o, indent=2, sort_keys=True))
+    f.write(';\n')
+
+states = {}
 for state, e_votes in E_VOTES.items():
     print(state)
-    pop_counts[state] = {
-        'Electoral votes': e_votes,
-        'name': state
-    }
     fn = os.path.join(DATA_DIR, state+'.xlsx')
 
     if not os.path.exists(fn):
@@ -68,12 +67,28 @@ for state, e_votes in E_VOTES.items():
 
     wb = load_workbook(fn)
     ws = wb[wb.sheetnames[0]]
-    for data_point in DATA_POINTS:
-        desc = ws[data_point.desc].value
-        value = ws[data_point.value].value
-        pop_counts[state][desc] = value
+
+    states[state] = {
+        'name': state,
+        'elVotes': e_votes,
+        'votingAgePop': ws[VOTING_AGE_POP].value,
+        'peoplePerElVote': ws[VOTING_AGE_POP].value/e_votes,
+    }
+
+elVotes = sum([state['elVotes'] for state in states.values()])
+votingAgePop = sum([state['votingAgePop'] for state in states.values()])
+nation = {
+    'name': 'United States',
+    'elVotes': elVotes,
+    'votingAgePop': votingAgePop,
+    'peoplePerElVote': votingAgePop/elVotes,
+}
+
+for state in states.values():
+    state['votesPerPerson'] = nation['peoplePerElVote'] / state['peoplePerElVote']
+    state['popPercent'] = (state['votingAgePop'] / nation['votingAgePop']) * 100
+    state['elVotePercent'] = (state['elVotes'] / nation['elVotes']) * 100
 
 with open(JS_FILE, 'w') as f:
-    f.write('export const states = ')
-    f.write(json.dumps(pop_counts, indent=2, sort_keys=True))
-    f.write(';\n')
+    write_object(f, 'states', states)
+    write_object(f, 'nation', nation)
