@@ -3,7 +3,7 @@
 }
 
 .react-autosuggest__input {
-  width: 460px;
+  width: 600px;
   height: 72px;
   padding: 10px 20px;
   font-family: 'EB Garamond', serif;
@@ -32,8 +32,8 @@
   display: block;
   position: absolute;
   left: 50%;
-  margin-left: -250px;
-  width: 500px;
+  margin-left: -330px;
+  width: 660px;
   border: 1px solid #aaa;
   background-color: #fff;
   font-family: 'EB Garamond', serif;

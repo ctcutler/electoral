@@ -10,7 +10,7 @@ const getSuggestionValue = suggestion => suggestion.name;
 const renderSuggestion = suggestion => (
   <span> {suggestion.name} </span>
 );
-const formatVotes = n => numeral(n).format('0.00');
+const formatVotes = n => n !== null ? numeral(n).format('0.00') : '–';
 const INITIAL_STATE = 'Wyoming';
 
 class App extends Component {
@@ -28,7 +28,10 @@ class App extends Component {
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({ suggestions: matchingStates(value) });
+    this.setState({
+      suggestions: matchingStates(value),
+      personVotes: null
+    });
   };
 
   onSuggestionSelected = (evt, { suggestion }) => {
