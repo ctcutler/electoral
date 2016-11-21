@@ -1,32 +1,20 @@
-import { nationalRatio, stateRatio, calcPersonVote, calcPersonVotes }
+import { NATIONAL_RATIO, stateRatio, calcPersonVotes, matchingStates }
   from './analysis.js';
+import { states } from './states.js';
 
-const states = {
-  Westeros: {
-    'Total of citizens 18 years and older': 6,
-    'Electoral votes': 2,
-  },
-  Panem: {
-    'Total of citizens 18 years and older': 24,
-    'Electoral votes': 4,
-  },
-};
-
-it('calculates the national ratio correctly', () => {
-  expect(nationalRatio(states)).toBe(5);
-});
-
+const STATE_RATIO = 258921;
 it('calculates a state ratio correctly', () => {
-  expect(stateRatio(states['Panem'])).toBe(6);
+  expect(stateRatio(states['New Hampshire'])).toBe(STATE_RATIO);
 });
 
 it('calculates person vote correctly', () => {
-  expect(calcPersonVote(states)(states['Panem'])).toBe(5/6);
+  expect(calcPersonVotes(states['New Hampshire'])).toBe(NATIONAL_RATIO/STATE_RATIO);
 });
 
-it('calculates all person votes correctly', () => {
-  expect(calcPersonVotes(states)).toEqual({
-    Westeros: 5/3,
-    Panem: 5/6,
-  });
+it('finds states that match', () => {
+  expect(matchingStates('hampshire')).toEqual([states['New Hampshire']]);
+});
+
+it('finds no non-matching states', () => {
+  expect(matchingStates('bork bork')).toEqual([]);
 });
