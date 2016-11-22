@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import R from 'ramda';
 import numeral from 'numeral';
 import Autosuggest from 'react-autosuggest';
 
 import './App.css';
 import './Autosuggest.css';
-import { matchingStates, calcPersonVotes } from './analysis.js';
+import {states} from './states.js';
 
+const nameMatches = pattern =>
+  R.compose(R.test(RegExp(pattern, 'i')), R.prop('name'));
+const matchingStates = substr =>
+  R.filter(nameMatches(substr), R.values(states));
 const getSuggestionValue = suggestion => suggestion.name;
 const renderSuggestion = suggestion => (
   <span> {suggestion.name} </span>
@@ -19,7 +24,7 @@ class App extends Component {
     this.state = {
         suggestions: [],
         value: INITIAL_STATE,
-        personVotes: calcPersonVotes(matchingStates(INITIAL_STATE)[0])
+        personVotes: matchingStates(INITIAL_STATE)[0].votesPerPerson
     };
   }
 
@@ -35,7 +40,7 @@ class App extends Component {
   };
 
   onSuggestionSelected = (evt, { suggestion }) => {
-    this.setState({ personVotes: calcPersonVotes(suggestion) });
+    this.setState({ personVotes: suggestion.votesPerPerson });
   };
 
   onSuggestionsClearRequested = () => {
