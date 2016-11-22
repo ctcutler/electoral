@@ -15,7 +15,6 @@ const getSuggestionValue = suggestion => suggestion.name;
 const renderSuggestion = suggestion => (
   <span> {suggestion.name} </span>
 );
-const formatVotes = n => n !== null ? numeral(n).format('0.00') : '–';
 const INITIAL_STATE = 'Wyoming';
 
 class App extends Component {
@@ -24,7 +23,7 @@ class App extends Component {
     this.state = {
         suggestions: [],
         value: INITIAL_STATE,
-        personVotes: matchingStates(INITIAL_STATE)[0].votesPerPerson
+        chosen: matchingStates(INITIAL_STATE)[0]
     };
   }
 
@@ -35,12 +34,12 @@ class App extends Component {
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: matchingStates(value),
-      personVotes: null
+      chosen: null
     });
   };
 
   onSuggestionSelected = (evt, { suggestion }) => {
-    this.setState({ personVotes: suggestion.votesPerPerson });
+    this.setState({ chosen: suggestion });
   };
 
   onSuggestionsClearRequested = () => {
@@ -48,7 +47,7 @@ class App extends Component {
   };
 
   render() {
-    const { value, suggestions, personVotes } = this.state;
+    const { value, suggestions, chosen } = this.state;
 
     // Autosuggest will pass through all these props to the input element.
     const inputProps = {
@@ -57,19 +56,40 @@ class App extends Component {
       onChange: this.onChange
     };
 
+
+    let votesPerPerson = '–';
+    let elVotePercent = '–';
+    let popPercent = '–';
+    let vpp2 = '–';
+    let stateName = '–';
+    if (chosen) {
+      stateName = chosen.name;
+      votesPerPerson = numeral(chosen.votesPerPerson).format('0.00');
+      elVotePercent = numeral(chosen.elVotePercent).format('0.00');
+      popPercent = numeral(chosen.popPercent).format('0.00');
+      vpp2 = numeral(chosen.elVotePercent / chosen.popPercent).format('0.00');
+    }
+
     return (
       <div className="App">
-        People in
-        <Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          onSuggestionSelected={this.onSuggestionSelected}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps}
-        />
-        get {formatVotes(personVotes)} votes each.
+        <div>
+          People in
+          <Autosuggest
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            onSuggestionSelected={this.onSuggestionSelected}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            inputProps={inputProps}
+          />
+          get {votesPerPerson} votes each.
+        </div>
+        <div>
+          {stateName} has {elVotePercent}% of the nation's electoral votes{' '}
+          and {popPercent}% of its population. {elVotePercent}/{popPercent}{' '}
+          = {vpp2} votes per person.
+        </div>
       </div>
     );
   }
