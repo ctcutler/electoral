@@ -5,7 +5,7 @@ import Autosuggest from 'react-autosuggest';
 
 import './App.css';
 import './Autosuggest.css';
-import {states} from './states.js';
+import { states, nation } from './states.js';
 
 const nameMatches = pattern =>
   R.compose(R.test(RegExp(pattern, 'i')), R.prop('name'));
@@ -59,20 +59,28 @@ class App extends Component {
 
     let votesPerPerson = '–';
     let elVotePercent = '–';
-    let popPercent = '–';
-    let vpp2 = '–';
     let stateName = '–';
+    let totalVotes = '–';
+    let statePop = '–';
+    let stateVotes = '–';
+    let elVoteRatio = '–';
     if (chosen) {
+      // FIXME: calculate more of this in Python
+      const er = chosen.elVotePercent/100;
+      const sv = er * nation.votingAgePop;
+      const vpp = sv / chosen.votingAgePop;
       stateName = chosen.name;
-      votesPerPerson = numeral(chosen.votesPerPerson).format('0.00');
+      totalVotes = numeral(nation.votingAgePop).format('0,0');
+      statePop = numeral(chosen.votingAgePop).format('0,0');
+      stateVotes = numeral(sv).format('0,0');
       elVotePercent = numeral(chosen.elVotePercent).format('0.00');
-      popPercent = numeral(chosen.popPercent).format('0.00');
-      vpp2 = numeral(chosen.elVotePercent / chosen.popPercent).format('0.00');
+      elVoteRatio = numeral(er).format('0.0000');
+      votesPerPerson = numeral(vpp).format('0.00');
     }
 
     return (
-      <div className="App">
-        <div>
+      <div>
+        <div className="headline">
           People in
           <Autosuggest
             suggestions={suggestions}
@@ -85,10 +93,22 @@ class App extends Component {
           />
           get {votesPerPerson} votes each.
         </div>
-        <div>
-          {stateName} has {elVotePercent}% of the nation's electoral votes{' '}
-          and {popPercent}% of its population. {elVotePercent}/{popPercent}{' '}
-          = {vpp2} votes per person.
+        <div className="explanation">
+          <p>
+            In the U.S. there are {totalVotes} people of voting age so{' '}
+            there are that many votes available.
+          </p>
+          <p>
+            {stateName}{' '}
+            gets {stateVotes} of those votes because it has {elVotePercent}%{' '}
+            of the electoral votes and {elVoteRatio} x {totalVotes} is{' '}
+            {stateVotes}.
+          </p>
+          <p>
+            {stateName} has {statePop} residents of voting{' '}
+            age so each one of them gets {stateVotes}/{statePop}{' '}
+            or {votesPerPerson} votes.
+          </p>
         </div>
       </div>
     );

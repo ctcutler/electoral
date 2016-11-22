@@ -1,5 +1,9 @@
-.App {
+.headline {
   text-align: center;
   font-size: 72px;
+  font-family: 'EB Garamond', serif;
+}
+.explanation {
+  font-size: 36px;
   font-family: 'EB Garamond', serif;
 }
