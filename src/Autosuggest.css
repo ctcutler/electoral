@@ -1,14 +1,15 @@
 .react-autosuggest__container {
   position: relative;
+  display: inline;
 }
 
 .react-autosuggest__input {
-  width: 600px;
-  height: 72px;
+  width: 420px;
+  height: 48px;
   padding: 10px 20px;
   font-family: 'EB Garamond', serif;
   font-weight: 300;
-  font-size: 72px;
+  font-size: 48px;
   border-top-style: none;
   border-left-style: none;
   border-right-style: none;
@@ -32,13 +33,13 @@
   display: block;
   position: absolute;
   left: 50%;
-  margin-left: -330px;
-  width: 660px;
+  margin-left: -210px;
+  width: 420px;
   border: 1px solid #aaa;
   background-color: #fff;
   font-family: 'EB Garamond', serif;
   font-weight: 300;
-  font-size: 72px;
+  font-size: 48px;
   z-index: 2;
 }
 

@@ -63,7 +63,7 @@ class App extends Component {
     let totalVotes = '–';
     let statePop = '–';
     let stateVotes = '–';
-    let elVoteRatio = '–';
+    let elVotes = '–';
     if (chosen) {
       // FIXME: calculate more of this in Python
       const er = chosen.elVotePercent/100;
@@ -74,14 +74,14 @@ class App extends Component {
       statePop = numeral(chosen.votingAgePop).format('0,0');
       stateVotes = numeral(sv).format('0,0');
       elVotePercent = numeral(chosen.elVotePercent).format('0.00');
-      elVoteRatio = numeral(er).format('0.0000');
+      elVotes = numeral(chosen.elVotes).format('0,0');
       votesPerPerson = numeral(vpp).format('0.00');
     }
 
     return (
       <div>
         <div className="headline">
-          People in
+          Each person in
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -91,24 +91,20 @@ class App extends Component {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
           />
-          get {votesPerPerson} votes each.
+          gets <strong>{votesPerPerson}</strong> votes in presidential elections.
         </div>
         <div className="explanation">
-          <p>
-            In the U.S. there are {totalVotes} people of voting age so{' '}
-            there are that many votes available.
-          </p>
-          <p>
-            {stateName}{' '}
-            gets {stateVotes} of those votes because it has {elVotePercent}%{' '}
-            of the electoral votes and {elVoteRatio} x {totalVotes} is{' '}
-            {stateVotes}.
-          </p>
-          <p>
-            {stateName} has {statePop} residents of voting{' '}
-            age so each one of them gets {stateVotes}/{statePop}{' '}
-            or {votesPerPerson} votes.
-          </p>
+          <p>If the presidential election were decided by a popular vote, every voter would get exactly one vote.  Instead, the <a href="https://en.wikipedia.org/wiki/Electoral_College_(United_States)">electoral college</a> decides the election.  We want to find out how <em>it</em> divides up the <strong>{totalVotes}</strong> available votes.</p>
+
+          <p>{stateName} gets <strong>{elVotes}</strong> out of <strong>538</strong> (or about <strong>{elVotePercent}%</strong>) of the nation's <em>electoral</em> votes. It decides about <strong>{elVotePercent}%</strong> of the election.</p>
+
+          <p>That means that out of the total of <strong>{totalVotes}</strong> votes available, {stateName} gets about <strong>{elVotePercent}%</strong>: <strong>{stateVotes}</strong> votes.</p>
+
+          <p>{stateName} has <strong>{statePop}</strong> voters.  <strong>{stateVotes}</strong> state votes / <strong>{statePop}</strong> state voters = <strong>{votesPerPerson}</strong> votes per person.</p>
+
+        </div>
+        <div className="source">
+          <p>(Vote counts come from the U.S. Census's 2016 Electorate Profiles data: http://www.census.gov/data/tables/time-series/demo/voting-and-registration/electorate-profiles-2016.html, specifically the "Total of citizens 18 years and older" figures.)</p>
         </div>
       </div>
     );
