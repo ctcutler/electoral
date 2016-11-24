@@ -51,7 +51,7 @@ class App extends Component {
 
     // Autosuggest will pass through all these props to the input element.
     const inputProps = {
-      placeholder: 'state name',
+      placeholder: 'State Name',
       value,
       onChange: this.onChange
     };
@@ -81,7 +81,7 @@ class App extends Component {
     return (
       <div>
         <div className="headline">
-          Each person in
+          Each person in<br/>
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -90,17 +90,17 @@ class App extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
-          />
-          gets <strong>{votesPerPerson}</strong> votes in presidential elections.
+          /><br/>
+          gets {votesPerPerson} votes for president.
         </div>
         <div className="explanation">
-          <p>If the presidential election were decided by a popular vote, every voter would get exactly one vote.  Instead, the <a href="https://en.wikipedia.org/wiki/Electoral_College_(United_States)">electoral college</a> decides the election.  We want to find out how <em>it</em> divides up the <strong>{totalVotes}</strong> available votes.</p>
+          <p>If the presidential election were decided by a popular vote, every voter would get exactly one vote.  Instead, the <a href="https://en.wikipedia.org/wiki/Electoral_College_(United_States)">electoral college</a> decides the election.  How does it divide up the <span className="number">{totalVotes}</span> available votes?</p>
 
-          <p>{stateName} gets <strong>{elVotes}</strong> out of <strong>538</strong> (or about <strong>{elVotePercent}%</strong>) of the nation's <em>electoral</em> votes. It decides about <strong>{elVotePercent}%</strong> of the election.</p>
+          <p>{stateName} gets <span className="number">{elVotes}</span> out of <span className="number">538</span> (or about <span className="number">{elVotePercent}%</span>) of the nation's electoral votes. Its voters decide about <span className="number">{elVotePercent}%</span> of the election.</p>
 
-          <p>That means that out of the total of <strong>{totalVotes}</strong> votes available, {stateName} gets about <strong>{elVotePercent}%</strong>: <strong>{stateVotes}</strong> votes.</p>
+          <p>That means that {stateName} gets about <span className="number">{elVotePercent}%</span> of the <span className="number">{totalVotes}</span> votes available: <span className="number">{stateVotes}</span> votes.</p>
 
-          <p>{stateName} has <strong>{statePop}</strong> voters.  <strong>{stateVotes}</strong> state votes / <strong>{statePop}</strong> state voters = <strong>{votesPerPerson}</strong> votes per person.</p>
+          <p>{stateName} has <span className="number">{statePop}</span> voters.  <span className="number">{stateVotes}</span> state votes / <span className="number">{statePop}</span> state voters = <span className="number">{votesPerPerson}</span> votes per person.</p>
 
         </div>
         <div className="source">
