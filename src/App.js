@@ -104,7 +104,7 @@ class App extends Component {
 
         </div>
         <div className="source">
-          <p>(Vote counts come from the U.S. Census's 2016 Electorate Profiles data: http://www.census.gov/data/tables/time-series/demo/voting-and-registration/electorate-profiles-2016.html, specifically the "Total of citizens 18 years and older" figures.)</p>
+          <p>Vote counts come from the U.S. Census's 2016 Electorate Profiles data: http://www.census.gov/data/tables/time-series/demo/voting-and-registration/electorate-profiles-2016.html, specifically the "Total of citizens 18 years and older" figures. Source code available <a href="https://github.com/ctcutler/electoral">here</a>.</p>
         </div>
       </div>
     );
