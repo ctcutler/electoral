@@ -52,6 +52,7 @@ class App extends Component {
     const inputProps = {
       placeholder: 'State',
       value,
+      autoFocus: 'autofocus',
       onChange: this.onChange
     };
 
