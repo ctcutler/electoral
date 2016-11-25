@@ -1,4 +1,5 @@
 .headline {
+  margin: 20px;
   text-align: center;
   font-size: 36px;
   font-family: 'EB Garamond', serif;
@@ -15,6 +16,6 @@
 }
 .number {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'EB Garamond', serif;
 }
