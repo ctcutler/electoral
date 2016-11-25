@@ -65,16 +65,12 @@ class App extends Component {
     let stateVotes = '–';
     let elVotes = '–';
     if (chosen) {
-      // FIXME: calculate more of this in Python
-      const er = chosen.elVotePercent/100;
-      const sv = er * nation.votingAgePop;
-      const vpp = sv / chosen.votingAgePop;
       stateName = chosen.name;
       statePop = numeral(chosen.votingAgePop).format('0,0');
-      stateVotes = numeral(sv).format('0,0');
+      stateVotes = numeral(chosen.votes).format('0,0');
       elVotePercent = numeral(chosen.elVotePercent).format('0.00');
       elVotes = numeral(chosen.elVotes).format('0,0');
-      votesPerPerson = numeral(vpp).format('0.00');
+      votesPerPerson = numeral(chosen.votesPerPerson).format('0.00');
     }
 
     return (

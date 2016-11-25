@@ -72,7 +72,6 @@ for state, e_votes in E_VOTES.items():
         'name': state,
         'elVotes': e_votes,
         'votingAgePop': ws[VOTING_AGE_POP].value,
-        'peoplePerElVote': ws[VOTING_AGE_POP].value/e_votes,
     }
 
 elVotes = sum([state['elVotes'] for state in states.values()])
@@ -81,13 +80,13 @@ nation = {
     'name': 'United States',
     'elVotes': elVotes,
     'votingAgePop': votingAgePop,
-    'peoplePerElVote': votingAgePop/elVotes,
 }
 
 for state in states.values():
-    state['votesPerPerson'] = nation['peoplePerElVote'] / state['peoplePerElVote']
-    state['popPercent'] = (state['votingAgePop'] / nation['votingAgePop']) * 100
-    state['elVotePercent'] = (state['elVotes'] / nation['elVotes']) * 100
+    state['elVoteRatio'] = state['elVotes'] / nation['elVotes']
+    state['elVotePercent'] = state['elVoteRatio'] * 100
+    state['votes'] = state['elVoteRatio'] * nation['votingAgePop']
+    state['votesPerPerson'] = state['votes'] / state['votingAgePop']
 
 with open(JS_FILE, 'w') as f:
     write_object(f, 'states', states)
