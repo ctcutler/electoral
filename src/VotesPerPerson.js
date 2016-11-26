@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import R from 'ramda';
-import c3 from 'c3';
 import numeral from 'numeral';
 import Autosuggest from 'react-autosuggest';
 
