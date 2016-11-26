@@ -8,6 +8,7 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "c3": "^0.4.11",
     "numeral": "^1.5.3",
     "ramda": "^0.22.1",
     "react": "^15.4.0",
