@@ -65,7 +65,10 @@ class VPPBarChart extends Component {
   }
 
   render() {
-    return <div id="vppBarChart"></div>;
+    return <div className="explanation">
+      <p>Here's a chart showing the votes/person for all 50 states and DC:</p>
+      <div id="vppBarChart"></div>
+    </div>;
   }
 }
 export default VPPBarChart;
