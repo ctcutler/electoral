@@ -33,7 +33,6 @@ class App extends Component {
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: matchingStates(value),
-      chosen: null
     });
   };
 
