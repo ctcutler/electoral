@@ -8,4 +8,5 @@
  X Update favicon and page title
  X Publish on github.io
  - Add a bar chart with votes per person for every state with x-axis at 1 so that anything less than 1 VPP is a "negative" bar
+ - Other categories beside states
  - When the data becomes available, add option to look at numbers for actual 2016 vote counts rather than eligible voter estimates

@@ -90,7 +90,7 @@ class App extends Component {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
           />
-          gets&nbsp;{votesPerPerson}&nbsp;votes&nbsp;for&nbsp;president.
+          gets&nbsp;<span className="headlineNumber">{votesPerPerson}</span>&nbsp;votes&nbsp;for&nbsp;president.
         </div>
         <div className="explanation">
           <p>How do we know that? {stateName} gets <span className="number">{elVotes}</span> out of <span className="number">538</span> (or about <span className="number">{elVotePercent}%</span>) of the nation's electoral votes. Its voters decide about <span className="number">{elVotePercent}%</span> of the election.  That means that {stateName} gets about <span className="number">{elVotePercent}%</span> of those <span className="number">{totalVotes}</span> available votes: <span className="number">{stateVotes}</span> votes.  And {stateName} has <span className="number">{statePop}</span> voters.</p>

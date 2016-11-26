@@ -4,6 +4,10 @@
   font-size: 36px;
   font-family: 'EB Garamond', serif;
 }
+.headlineNumber {
+  font-size: 48px;
+  font-weight: bold;
+}
 .explanation {
   line-height: 120%;
   margin: 20px;
