@@ -31,8 +31,10 @@ class App extends Component {
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
+    const { chosen } = this.state;
     this.setState({
       suggestions: matchingStates(value),
+      chosen: chosen && chosen.name === value ? chosen : null,
     });
   };
 
