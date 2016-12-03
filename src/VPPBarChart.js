@@ -12,6 +12,7 @@ const sortedStates = R.compose(
   R.sortBy(R.prop('votesPerPerson')),
   R.values
 );
+const formatVPP = d => numeral(d+1).format('0.00');
 
 class VPPBarChart extends Component {
   /* Note: in order to make the bars go negative below 1.0, we subtract 1
@@ -23,36 +24,53 @@ class VPPBarChart extends Component {
     const columns = [ vpps(states) ];
     const categories = stateNames(states);
     c3.generate({
-        bindto: '#vppBarChart',
-        data: {
-            columns,
-            type: 'bar'
+      bindto: '#vppBarChart',
+      data: {
+        columns,
+        type: 'bar',
+        labels: {
+          //format: (v, id, i, j) => categories[i]
+          format: (v, id, i, j) => categories[i] + ' (' + formatVPP(v) + ')'
         },
-        grid: {
-            y: {
-                lines: [{value: 0}]
-            }
-        },
-        tooltip: {
-          format: {
-            value: d => numeral(d+1).format('0.00'),
-          }
-        },
-        axis: {
-          x: {
-              type: 'category',
-              tick: {
-                  rotate: 75,
-                  multiline: false
-              },
-              categories,
-          },
-          y: {
-            tick: {
-              format: d =>  d+1,
-            }
-          }
+      },
+      padding: {
+        left: 250
+      },
+      tooltip: {
+        format: {
+          value: formatVPP
         }
+      },
+      bar: {
+        width: {
+          ratio: .8
+        }
+      },
+      axis: {
+        x: {
+          show: false,
+          type: 'category',
+          tick: {
+              rotate: 75,
+              multiline: false
+          },
+          categories,
+        },
+        y: {
+          show: false,
+          tick: {
+            format: d =>  d+1,
+          }
+        },
+        rotated: true
+      },
+      legend: {
+        show: false
+      },
+      size: {
+        height: 2000,
+        width: 800
+      }
     });
   }
 

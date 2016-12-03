@@ -19,6 +19,16 @@
   font-size: 12px;
   font-family: 'helvetica', sans-serif;
 }
+#vppBarChart svg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 .number {
   font-weight: bold;
+}
+.c3-text {
+  /*font-size: 18px;*/
+  font-size: 12px;
+  font-family: 'helvetica', sans-serif;
 }
