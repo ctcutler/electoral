@@ -24,7 +24,7 @@ E_VOTES = {
 
 VOTING_AGE_POP = 'B3'
 EIGHTEEN_TO_TWENTY_NINE = 'B5'
-THIRTY_TO_FOURTY_FOUR = 'B6'
+THIRTY_TO_FORTY_FOUR = 'B6'
 FORTY_FIVE_TO_SIXTY_FOUR = 'B7'
 SIXTY_FIVE_AND_OVER = 'B8'
 MALE = 'B10'
@@ -45,6 +45,22 @@ DETERMINED_POVERTY_STATUS = 'B26'
 BELOW_POVERTY_LEVEL = 'B27'
 HOUSEHOLDS = 'B28'
 HUNDRED_K_HOUSEHOLDS = 'B29'
+
+demos = {
+  'eighteenToTwentyNine': EIGHTEEN_TO_TWENTY_NINE,
+  'thirtyToFortyFour': THIRTY_TO_FORTY_FOUR,
+  'fortyFiveToSixtyFour': FORTY_FIVE_TO_SIXTY_FOUR,
+  'sixtyFiveAndOver': SIXTY_FIVE_AND_OVER,
+  'male': MALE,
+  'female': FEMALE,
+  'white': WHITE,
+  'black': BLACK,
+  'nativeAmerican': NATIVE_AMERICAN,
+  'asian': ASIAN,
+  'pacificIslander': PACIFIC_ISLANDER,
+  'otherRace': OTHER_RACE,
+  'multiRacial': MULTI_RACIAL,
+}
 
 # urls found at: http://www.census.gov/data/tables/time-series/demo/voting-and-registration/electorate-profiles-2016.html
 URL = 'http://www2.census.gov/programs-surveys/demo/tables/voting/{}.xlsx'
@@ -72,7 +88,14 @@ for state, e_votes in E_VOTES.items():
         'name': state,
         'elVotes': e_votes,
         'votingAgePop': ws[VOTING_AGE_POP].value,
+        'demos': {}
     }
+    for (demo_name, demo_key) in demos.items():
+        pop = ws[demo_key].value
+        states[state]['demos'][demo_name] = {
+            demo_name+'Pop': pop,
+            demo_name+'Ratio': pop / states[state]['votingAgePop']
+        }
 
 elVotes = sum([state['elVotes'] for state in states.values()])
 votingAgePop = sum([state['votingAgePop'] for state in states.values()])
@@ -80,6 +103,7 @@ nation = {
     'name': 'United States',
     'elVotes': elVotes,
     'votingAgePop': votingAgePop,
+    'demos': {}
 }
 
 for state in states.values():
@@ -87,6 +111,14 @@ for state in states.values():
     state['elVotePercent'] = state['elVoteRatio'] * 100
     state['votes'] = state['elVoteRatio'] * nation['votingAgePop']
     state['votesPerPerson'] = state['votes'] / state['votingAgePop']
+    for (demo_name, demo_key) in demos.items():
+        state_demo = state['demos'][demo_name]
+        state_demo[demo_name+'Votes'] = state_demo[demo_name+'Ratio'] * state['votes']
+
+for (demo_name, demo_key) in demos.items():
+    total_demo_pop = sum([state['demos'][demo_name][demo_name+'Pop'] for state in states.values()])
+    total_demo_votes = sum([state['demos'][demo_name][demo_name+'Votes'] for state in states.values()])
+    nation['demos'][demo_name] = { 'votesPerPerson': total_demo_votes / total_demo_pop }
 
 with open(JS_FILE, 'w') as f:
     write_object(f, 'states', states)
